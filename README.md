@@ -1,4 +1,7 @@
 # SerializableModel
+
+[![Latest Stable Version](https://poser.pugx.org/little-apps/serializable-model/v/stable)](https://packagist.org/packages/little-apps/serializable-model) [![Total Downloads](https://poser.pugx.org/little-apps/serializable-model/downloads)](https://packagist.org/packages/little-apps/serializable-model) [![Latest Unstable Version](https://poser.pugx.org/little-apps/serializable-model/v/unstable)](https://packagist.org/packages/little-apps/serializable-model) [![License](https://poser.pugx.org/little-apps/serializable-model/license)](https://packagist.org/packages/little-apps/serializable-model)
+
 SerializableModel is simple package for serializable columns in a Laravel model. It utilizes the [``serialize``](http://php.net/manual/en/function.serialize.php) and [``unserialize``](http://php.net/manual/en/function.unserialize.php) PHP functions to store values in the database.
 
 ## License
@@ -14,7 +17,12 @@ SerializableModel is free and open source, and is licensed under the MIT License
     
 ## Installation
 
-Will be updated once Composer package is live.
+Install using composer:
+
+```bash
+cd /path/to/laravel/app
+composer require little-apps/serializable-model
+```
 
 ## Usage
 
