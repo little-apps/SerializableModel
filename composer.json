@@ -1,0 +1,22 @@
+{
+    "name": "little-apps/serializable-model",
+    "description": "Simple package for serializable columns in a Laravel model.",
+    "require": {
+        "illuminate/database": "^5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    },
+	"autoload": {
+		"psr-0": {
+			"LittleApps\\SerializableModel": "src/"
+		}
+	},
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nick H",
+            "email": "nick@little-apps.com"
+        }
+    ]
+}
