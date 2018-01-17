@@ -8,8 +8,8 @@
         "phpunit/phpunit": "^6.5"
     },
 	"autoload": {
-		"psr-0": {
-			"LittleApps\\SerializableModel": "src/"
+		"psr-4": {
+			"LittleApps\\SerializableModel\\": "src/"
 		}
 	},
     "license": "MIT",
