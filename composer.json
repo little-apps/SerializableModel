@@ -5,12 +5,18 @@
         "illuminate/database": "^5.5"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.5"
+        "phpunit/phpunit": "^6.5",
+        "orchestra/testbench": "~3.0"
     },
 	"autoload": {
 		"psr-4": {
 			"LittleApps\\SerializableModel\\": "src/"
 		}
+	},
+	"autoload-dev": {
+		"classmap": [
+			"tests/models"
+		]
 	},
     "license": "MIT",
     "authors": [

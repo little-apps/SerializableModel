@@ -1,0 +1,22 @@
+language: php
+
+php:
+  - 7
+  - 7.1
+
+matrix:
+  fast_finish: true
+
+sudo: false
+
+services:
+  - mysql
+
+before_script:
+  - mysql -e 'create database unittest;'
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction
+
+script:
+  - mkdir -p build/logs
+  - vendor/bin/phpunit
