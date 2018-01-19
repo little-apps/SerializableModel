@@ -19,7 +19,6 @@ class SerializableTest extends TestCase {
 	public function tearDown() {
 		parent::tearDown();
 		
-        Option::truncate();
     }
 	
 	/**
