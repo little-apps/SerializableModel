@@ -62,6 +62,7 @@ class SerializableTest extends TestCase {
 		
 		$actualOption = Option::where('name', $this->getOptionName())->first();
 		
+		$this->assertNotNull($actualOption);
 		$this->assertEquals($expected, $actualOption->value);
 		$this->assertEquals($expected, $this->getRawOptionValue($this->getOptionName()));
 	}
