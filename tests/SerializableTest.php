@@ -142,6 +142,24 @@ class SerializableTest extends TestCase {
 	}
 	
 	/**
+	* Tests a null is stored serialized.
+	* 
+	* @return void
+	*/
+	public function testStoresNull() {
+		$expectedNull = null;
+		$expectedNullSerialized = serialize($expectedNull);
+		
+		$option = Option::create(['name' => $this->getOptionName(), 'value' => $expectedNull]);
+		
+		$actualOption = Option::where('name', $this->getOptionName())->first();
+		
+		$this->assertNotNull($actualOption);
+		$this->assertNull($actualOption->value);
+		$this->assertEquals($expectedNullSerialized, $this->getRawOptionValue($this->getOptionName()));
+	}
+	
+	/**
 	* Tests a resource is not stored.
 	* 
 	* @return void
