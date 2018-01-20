@@ -67,4 +67,21 @@ class SerializableTest extends TestCase {
 		$this->assertEquals($expected, $this->getRawOptionValue($this->getOptionName()));
 	}
 	
+	/**
+	* Tests an int is stored serialized.
+	* 
+	* @return
+	*/
+	public function testStoresNumber() {
+		$expectedNumber = $this->faker->randomNumber;
+		$expectedNumberSerialized = serialize($expectedNumber);
+		
+		$option = Option::create(['name' => $this->getOptionName(), 'value' => $expectedNumber]);
+		
+		$actualOption = Option::where('name', $this->getOptionName())->first();
+		
+		$this->assertNotNull($actualOption);
+		$this->assertEquals($expectedNumber, $actualOption->value);
+		$this->assertEquals($expectedNumberSerialized, $this->getRawOptionValue($this->getOptionName()));
+	}
 }
