@@ -86,4 +86,22 @@ class SerializableTest extends TestCase {
 		$this->assertEquals($expectedNumber, $actualOption->value);
 		$this->assertEquals($expectedNumberSerialized, $this->getRawOptionValue($this->getOptionName()));
 	}
+	
+	/**
+	* Tests a float is stored serialized.
+	* 
+	* @return void
+	*/
+	public function testStoresFloat() {
+		$expectedFloat = $this->faker->randomFloat;
+		$expectedFloatSerialized = serialize($expectedFloat);
+		
+		$option = Option::create(['name' => $this->getOptionName(), 'value' => $expectedFloat]);
+		
+		$actualOption = Option::where('name', $this->getOptionName())->first();
+		
+		$this->assertNotNull($actualOption);
+		$this->assertEquals($expectedFloat, $actualOption->value);
+		$this->assertEquals($expectedFloatSerialized, $this->getRawOptionValue($this->getOptionName()));
+	}
 }
