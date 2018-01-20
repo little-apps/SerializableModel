@@ -23,4 +23,8 @@ class Option extends Model
 	* 
 	*/
     protected $serializable = ['value'];
+    
+    protected $attributes = [
+		'autoload' => false
+	];
 }
