@@ -54,6 +54,8 @@ class SerializableTest extends TestCase {
 	
 	/**
 	 * Test a string is stored as is
+	 * 
+	 * @return void
 	 */
 	public function testStoresString() {
 		$expected = $this->faker->text(30);
@@ -70,7 +72,7 @@ class SerializableTest extends TestCase {
 	/**
 	* Tests an int is stored serialized.
 	* 
-	* @return
+	* @return void
 	*/
 	public function testStoresNumber() {
 		$expectedNumber = $this->faker->randomNumber;
