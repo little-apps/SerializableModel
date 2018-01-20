@@ -160,6 +160,26 @@ class SerializableTest extends TestCase {
 	}
 	
 	/**
+	* Tests a object is stored serialized.
+	* 
+	* @return void
+	*/
+	public function testStoresObject() {
+		$expectedObject = new Option(['name' => $this->faker->word, 'value' => $this->faker->sentence]);
+		$expectedObjectSerialized = serialize($expectedObject);
+		
+		$option = Option::create(['name' => $this->getOptionName(), 'value' => $expectedObject]);
+		
+		$actualOption = Option::where('name', $this->getOptionName())->first();
+		
+		$this->assertNotNull($actualOption);
+		$this->assertInstanceOf(Option::class, $actualOption->value);
+		$this->assertEquals($expectedObject, $actualOption->value);
+		$this->assertEquals((string) $expectedObject, (string) $actualOption->value);
+		$this->assertEquals($expectedObjectSerialized, $this->getRawOptionValue($this->getOptionName()));
+	}
+	
+	/**
 	* Tests a resource is not stored.
 	* 
 	* @return void
