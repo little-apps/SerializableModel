@@ -30,6 +30,8 @@ class SerializableTest extends TestCase {
      */
     protected function getEnvironmentSetUp($app) {
         $app['config']->set('database.default', 'testing');
+        
+        $app->setBasePath(__DIR__);
 	}
 	
 	protected function getOptionName() {
