@@ -124,7 +124,7 @@ class SerializableTest extends TestCase {
 	}
 	
 	/**
-	* Tests a array is stored serialized.
+	* Tests a boolean is stored serialized.
 	* 
 	* @return void
 	*/
