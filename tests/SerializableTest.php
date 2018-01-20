@@ -2,9 +2,11 @@
 
 use Orchestra\Testbench\TestCase;
 use LittleApps\SerializableModel\Serializable;
-use Faker\Factory as FakerFactory;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class SerializableTest extends TestCase {
+	use WithFaker;
+	
 	/**
      * Setup the test environment.
      */
@@ -44,10 +46,6 @@ class SerializableTest extends TestCase {
 		return $option->value;
 	}
 	
-	protected function getFaker() {
-		return FakerFactory::create();
-	}
-	
 	public function testUsesSerializable() {
 		$option = new Option;
 		
@@ -58,7 +56,7 @@ class SerializableTest extends TestCase {
 	 * Test a string is stored as is
 	 */
 	public function testStoresString() {
-		$expected = $this->getFaker()->text(30);
+		$expected = $this->faker->text(30);
 		
 		$option = Option::create(['name' => $this->getOptionName(), 'value' => $expected]);
 		
