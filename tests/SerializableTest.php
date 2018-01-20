@@ -60,7 +60,9 @@ class SerializableTest extends TestCase {
 		
 		$option = Option::create(['name' => $this->getOptionName(), 'value' => $expected]);
 		
-		$this->assertEquals($expected, $option->value);
+		$actualOption = Option::where('name', $this->getOptionName())->first();
+		
+		$this->assertEquals($expected, $actualOption->value);
 		$this->assertEquals($expected, $this->getRawOptionValue($this->getOptionName()));
 	}
 	
