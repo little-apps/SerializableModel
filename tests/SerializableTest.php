@@ -141,4 +141,25 @@ class SerializableTest extends TestCase {
 		$this->assertEquals($expectedBooleanSerialized, $this->getRawOptionValue($this->getOptionName()));
 	}
 	
+	/**
+	* Tests a resource is not stored.
+	* 
+	* @return void
+	*/
+	public function testCantStoreResource() {
+		$expectedResource = @fopen('php://temp', 'w');
+		
+		$this->assertInternalType('resource', $expectedResource);
+		
+		$option = Option::create(['name' => $this->getOptionName(), 'value' => $expectedResource]);
+		
+		$actualOption = Option::where('name', $this->getOptionName())->first();
+		
+		$this->assertNotNull($actualOption);
+		$this->assertNotInternalType('resource', $actualOption->value);
+		$this->assertNotEquals($expectedResource, $actualOption->value);
+		
+		fclose($expectedResource);
+	}
+	
 }
